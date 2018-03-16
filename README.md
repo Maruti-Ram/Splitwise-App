@@ -1,7 +1,7 @@
 # splitwise-app
 
 This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+THis is a web based implementation of the Splitwise App with Ember acting as a backend.
 
 ## Prerequisites
 
