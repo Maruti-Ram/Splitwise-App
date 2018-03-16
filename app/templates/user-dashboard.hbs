@@ -1,0 +1,128 @@
+{{more-options}}
+<div class="container valign center-block dashBoard">
+<div>
+    {{#each model.message as |messages|}}
+      {{#if (equals model.userInsession.userEmail messages.userName)}}
+        <a>{{messages.description}} was added by {{messages.activityAddedBy}}</a>
+      {{/if}}
+    {{/each}}
+</div>
+
+  <div class="row">
+    <div class="col s12 no-pad_c">
+      <ul class="tabs tabs-fixed-width">
+        <li class="tab col s3"><a class="active" href="#tab_friends">Friends</a></li>
+        <li class="tab col s3"><a href="#tab_groups">Groups</a></li>
+        <li class="tab col s3"><a href="#tab_activity">Activity</a></li>
+      </ul>
+    </div>
+    <div id="tab_friends" class="col s12">
+      <ul class="collapsible" data-collapsible="accordion">
+        {{#each model.userFriends as |onrFriend|}}
+          <li>
+            <div class="collapsible-header">
+              <ul class="collection">
+                <li class="collection-item avatar">
+                  <i class="material-icons circle red">person</i>
+                  <span class="title">{{onrFriend.name}}</span>
+                  <p class="caption red-text">
+                    You Owe: ${{onrFriend.balance}}
+                  </p>
+                  <a href="#!" class="secondary-content">Settle Up</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+    <div id="tab_groups" class="col s12">
+      <ul class="collapsible" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header">
+            <ul class="collection">
+              <li class="collection-item avatar">
+                <i class="material-icons circle red">people</i>
+                <span class="title">Group 1</span>
+                <p class="caption">
+                  Owes You $ 29
+                </p>
+                <a href="#!" class="secondary-content"> Settle Up</a>
+              </li>
+            </ul>
+          </div>
+          <div class="collapsible-body">
+            <ul class="collection">
+              <li class="collection-item avatar">
+                <i class="material-icons circle black">directions_car</i>
+                <span class="title">Uber</span>
+                <p class="caption">
+                  Travel
+                </p>
+                <a href="#!" class="secondary-content">Settled Up</a>
+              </li>
+            </ul>
+            <ul class="collection">
+              <li class="collection-item avatar">
+                <i class="material-icons circle red">store_mall_directory</i>
+                <span class="title">Target Shopping</span>
+                <p class="caption">
+                  Groceries
+                </p>
+                <a href="#!" class="secondary-content">Settled Up</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header">
+            <ul class="collection">
+              <li class="collection-item avatar">
+                <i class="material-icons circle red">people</i>
+                <span class="title">Group 2</span>
+                <p class="caption">
+                  You Owe $ 20
+                </p>
+                <a href="#!" class="secondary-content">Settle Up</a>
+              </li>
+            </ul>
+          </div>
+          <div class="collapsible-body">
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header">
+            <ul class="collection">
+              <li class="collection-item avatar">
+                <i class="material-icons circle red">people</i>
+                <span class="title">Group 3</span>
+                <p class="caption">
+                  You Owe $ 55
+                </p>
+                <a href="#!" class="secondary-content">Settled</a>
+              </li>
+            </ul>
+          </div>
+          <div class="collapsible-body">
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div id="tab_activity" class="col s12">
+      <ul class="collection">
+        {{#each model.expenses as |onrExpence|}}
+          <li class="collection-item">
+            <i class="material-icons circle">local_drink</i>
+            <b>{{onrExpence.paidBy}}</b> Added <b>{{onrExpence.description}}</b>
+            <p class="caption green-text"> {{onrExpence.paidBy}} get back ${{onrExpence.getBack}}</p>
+            {{#each model.expenses.friends as |onrFriend|}}
+              <p class="caption green-text">{{onrFriend}}</p>
+            {{/each}}
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+</script>

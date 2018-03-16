@@ -1,0 +1,101 @@
+{{more-options}}
+<div class="row">
+  <div class="section no-pad-bot z-depth-2">
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="card white ">
+          <div class="card-section blue-grey darken-2">
+            <span class="card-title white-text">&bull; Add a Bill &bull;</span>
+          </div>
+          <div class="card-content">
+            <div class="row">
+              <img class="col s3" width="50" id="billIconOne" height="100" src="https://s3.amazonaws.com/splitwise/uploads/category/icon/square/home/other.png">
+              <div class="row">
+                <span class="card-title col s7"><i class="material-icons">account_circle</i>Friend Details:</span>
+                <div class="input-field col s9">
+                  <select multiple onchange= {{action "fetchFriends"}}>
+                      <option disabled selected>Choose your Friends</option>
+                      {{#each model.firendsArray as |onrFriend|}}
+                        <option value="{{onrFriend.emailId}}">{{onrFriend.name}}</option>
+                      {{/each}}
+                  </select>
+                </div>
+              </div>
+              <div class="divider"></div>
+              <div class="row">
+                <div class="input-field col s12 m6">
+                  <i class="material-icons prefix">account_box</i> {{input id="description" name="description" type="text" value=description change=(action 'fetchDescription')}}
+                  <label for="description">Description</label>
+                </div>
+                <div class="input-field col s12 m6">
+                  <i class="material-icons prefix">attach_money</i> {{input id="currency" name="amount" type="number" value=amount change=(action 'fetchAmount')}}
+                  <label for="currency">Amount</label>
+                </div>
+              </div>
+              <div class="input-field col s12">
+                <i class="material-icons prefix">people</i>
+                <select id="iconSelectOne" onchange= {{action "changeBillIcon"}}>
+                  <option value="" disabled selected>Select</option>
+                  {{#each model.iconNameUrlObject as |obj|}}
+                  <option value={{obj.icon}}>{{obj.name}}</option>
+                  {{/each}}
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="card-action right-align grey lighten-1">
+            <a type="button" {{action "save" billObject}} class="waves-effect waves-light btn teal darken-1">Split Expenses<i class="material-icons right">person_add</i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================================================================== -->
+
+      <div class="col s12 m6">
+        <div class="card white ">
+          <div class="card-section blue-grey darken-2">
+            <span class="card-title white-text">&bull; Add Bills to a Group &bull;</span>
+          </div>
+          <div class="card-content">
+            <div class="row">
+              <img class="col s3" width="50" height="100" src="https://s3.amazonaws.com/splitwise/uploads/category/icon/square/home/other.png">
+                <div class="row">
+                  <span class="card-title col s7"><i class="material-icons">account_circle</i>Group Details:</span>
+                  <div class="input-field col s9">
+                    <i class="material-icons prefix">edit</i> {{input id="gname" name="gname" class="validate" type="text" value=gname change=(action 'fetchGroupName')}}
+                    <label for="description" data-error="Please enter a valid Group Name" data-success="right">Group Name</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col s12 m6">
+                    <i class="material-icons prefix">account_box</i> {{input id="gDesc" name="gDesc" class="validate" type="text" value=gDesc change=(action 'fetchGroupDescription')}}
+                    <label for="description">Description</label>
+                  </div>
+                  <div class="input-field col s12 m6">
+                    <i class="material-icons prefix">attach_money</i> {{input id="gAmount" name="gAmount" class="validate" type="text" value=gAmount change=(action 'fetchGroupAmont')}}
+                    <label for="currency">Amount</label>
+                  </div>
+                </div>
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">people</i>
+                  <select> <!-- If u need multip select: change <select> to <select multiple>-->
+                      <option value="" disabled selected>Select</option>
+                      <option value="1">Option 1</option> <!-- Dont forget to change values too-->
+                      <option value="2">Option 2</option>
+                    </select>
+                </div>
+            </div>
+          </div>
+          <div class="card-action right-align grey lighten-1">
+            <a type="button" class="waves-effect waves-light btn teal darken-1">Split Expenses<i class="material-icons right">person_add</i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  $(document).ready(() => {
+    $('select').material_select();
+  });
+</script>

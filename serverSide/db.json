@@ -1,0 +1,76 @@
+{
+  "allUsersEmailAndPwd": [
+    {
+      "id": "Neha",
+      "Neha": "123"
+    }
+  ],
+  "allRegisteredUserObjects": [
+    {
+      "id": "Neha",
+      "firstName": "Neha",
+      "lastName": "tambe",
+      "userEmail": "Neha",
+      "friends": [
+        {
+          "name": "Dev",
+          "emailId": "dev24@gmail.com",
+          "balance": "15",
+          "id": "dev24@gmail.com"
+        },
+        {
+          "name": "Maruti",
+          "emailId": "Maruti@gmail.com",
+          "balance": "15",
+          "id": "Maruti@gmail.com"
+        },
+        {
+          "name": "Anjali",
+          "emailId": "Anjali@gmail.com",
+          "balance": "15",
+          "id": "Anjali@gmail.com"
+        },
+        {
+          "name": "Sanika",
+          "emailId": "sanika@gmail.com",
+          "balance": "0",
+          "id": "sanika@gmail.com"
+        },
+        {
+          "name": "q",
+          "emailId": "q",
+          "balance": "-5",
+          "id": "q"
+        }
+      ],
+      "groups": []
+    }
+  ],
+  "groups": [],
+  "expenses": [
+    {
+      "paidBy": "Neha",
+      "description": "Test Bill 1",
+      "amount": "10",
+      "paidInBetween": "[\"Dev\"]",
+      "getBack": "5",
+      "id": "Neha-Test-Bill 1"
+    },
+    {
+      "paidBy": "Neha",
+      "description": "test Bill 2",
+      "amount": "45",
+      "paidInBetween": "[\"Dev\",\"Maruti\",\"Anjali\"]",
+      "getBack": "33.75",
+      "id": "Neha-test-Bill 2"
+    },
+    {
+      "paidBy": "Neha",
+      "description": "FireBase test",
+      "amount": "10",
+      "paidInBetween": "[\"q\"]",
+      "getBack": "5",
+      "id": "Neha-FireBase-test"
+    }
+  ]
+}
